@@ -137,4 +137,11 @@ document.head.insertAdjacentHTML('beforeend','<style>.mast .eyebrow{position:rel
 [lang="ko"] .brand span,[lang="ja"] .brand span{letter-spacing:.08em!important}[lang="ko"] .notice-logo span,[lang="ja"] .notice-logo span{letter-spacing:.08em!important}
 </style><style>
 .brand span,.notice-logo span{display:block;width:max-content;margin-left:auto!important;margin-right:auto!important}
+</style><script>
+/* Sharper price hierarchy and a useful column label. */
+T.ko.priceLabel='가격';T.en.priceLabel='PRICE';T.ja.priceLabel='価格';
+var renderBeforePriceLabel=render;render=function(){renderBeforePriceLabel();document.querySelectorAll('.cat .label').forEach(label=>label.textContent=T[L].priceLabel)};render();
+</script><style>
+.price{font-family:ui-monospace,"SFMono-Regular","SF Mono",Menlo,Consolas,"Liberation Mono",monospace!important;font-size:16px!important;font-weight:700!important;letter-spacing:-.045em!important;font-variant-numeric:tabular-nums;line-height:1.2;color:#c55742!important}
+.cathead .label{font-size:11px!important;letter-spacing:.16em!important;color:#b65b44!important}
 </style></body></html>
