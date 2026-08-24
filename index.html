@@ -160,7 +160,16 @@ var renderBeforePriceLabel=render;render=function(){renderBeforePriceLabel();doc
 .notice-card li{padding:10px 0!important;border-color:#fff8df3d!important}
 .notice-card strong{color:#f4c25f!important}
 .notice-card button{max-width:440px!important;display:block!important;margin:22px auto 0!important;background:#e6a63f!important;color:#162127!important;box-shadow:0 5px 20px #0007!important}
+.notice-screen.hide{display:none!important}
+.notice-langs{display:flex;gap:7px;justify-content:center;max-width:360px;margin:0 auto 20px}.notice-langs button{flex:1;border:1px solid #fff7d26b;border-radius:999px;padding:8px 4px;background:#ffffff14;color:#fffdf3;font-size:12px}.notice-langs button.active{border-color:#f4c25f;background:#f4c25f;color:#182126;font-weight:700}
+.langwrap{display:none!important}.nav{top:0!important}
 </style><script>
-/* Always reveal the menu from the welcome screen, including on mobile browsers. */
+/* The welcome screen mirrors the menu language and closes reliably on every device. */
+const noticeCopy={ko:{title:'이용 안내',lines:['<strong>주문</strong>은 바에 와서 해주세요.','화장실은 <strong>1층</strong>에 있습니다.<br>비밀번호 : <strong>1004*</strong>','와이파이 비밀번호 : <strong>sanchez7979</strong>','이용시간은 <strong>2시간</strong>입니다.'],enter:'메뉴판 보기'},en:{title:'Welcome',lines:['Please place your <strong>order</strong> at the bar.','The restroom is on the <strong>1st floor</strong>.<br>Passcode: <strong>1004*</strong>','Wi-Fi password: <strong>sanchez7979</strong>','Table time: <strong>2 hours</strong>'],enter:'View Menu'},ja:{title:'ご利用案内',lines:['ご注文はバーにてお願いいたします。','お手洗いは<strong>1階</strong>にあります。<br>暗証番号：<strong>1004*</strong>','Wi-Fi パスワード：<strong>sanchez7979</strong>','ご利用時間は<strong>2時間</strong>です。'],enter:'メニューを見る'}};
+const noticeCard=document.querySelector('.notice-card');noticeCard.insertAdjacentHTML('afterbegin','<div class="notice-langs"><button data-notice-l="ko">🇰🇷 한국어</button><button data-notice-l="en">🇺🇸 English</button><button data-notice-l="ja">🇯🇵 日本語</button></div>');
+function localizeNotice(){const copy=noticeCopy[L];const card=document.querySelector('.notice-card');card.querySelector('h1').textContent=copy.title;card.querySelectorAll('li').forEach((line,index)=>line.innerHTML=copy.lines[index]);document.getElementById('enter-menu').textContent=copy.enter;card.querySelectorAll('[data-notice-l]').forEach(button=>button.classList.toggle('active',button.dataset.noticeL===L))}
+const menuRenderWithNotice=render;render=function(){menuRenderWithNotice();localizeNotice()};
+noticeCard.querySelector('.notice-langs').addEventListener('click',event=>{const choice=event.target.closest('[data-notice-l]');if(!choice)return;L=choice.dataset.noticeL;localStorage.setItem('sanchez-language',L);render()});
 document.getElementById('enter-menu').onclick=function(){const notice=document.getElementById('notice-screen');if(notice)notice.remove();window.scrollTo({top:0,left:0,behavior:'auto'})};
+render();
 </script></body></html>
