@@ -122,4 +122,19 @@ window.addEventListener('scroll',updateCategoryFromScroll,{passive:true});window
 /* Ocha-wari is now offered only in the by-the-glass category. */
 findCat('spirits')[2]=findCat('spirits')[2].filter(item=>item[0]!=='문경바람 오크 오차와리 잔술');
 render();
-</script></body></html>
+</script><script>
+/* Make the location line readable and localize the MAKGEOLLI wordmark. */
+T.ko.wordmark='막걸리';T.en.wordmark='MAKGEOLLI';T.ja.wordmark='マッコリ';
+function updateWordmark(){const text=T[L].wordmark;document.querySelector('.brand span').textContent=text;document.querySelector('.notice-logo span').textContent=text}
+var renderBeforeWordmark=render;render=function(){renderBeforeWordmark();updateWordmark()};render();
+document.head.insertAdjacentHTML('beforeend','<style>.mast .eyebrow{position:relative;z-index:6;display:inline-block;padding:5px 10px;border-radius:999px;background:#fff7e9dc;color:#9c443a;box-shadow:0 2px 8px #80563a1c}.brand span{font-size:17px!important;letter-spacing:.2em!important;padding-left:.2em!important;font-weight:600}.notice-logo span{font-size:16px!important;letter-spacing:.22em!important;padding-left:.22em!important;font-weight:600}[lang="ko"] .brand span,[lang="ja"] .brand span{letter-spacing:.08em!important;padding-left:.08em!important}[lang="ko"] .notice-logo span,[lang="ja"] .notice-logo span{letter-spacing:.1em!important;padding-left:.1em!important}</style>');
+</script><style>
+/* Let the location breathe below the papel picado, and refine the wordmark. */
+.mast{padding-top:60px!important}.mast .eyebrow{z-index:6;padding:0;background:transparent;box-shadow:none;color:#9c443a}
+.mast .brand{margin-top:22px}
+.brand span{display:inline-block;margin-top:17px;padding:11px 19px 0;border-top:1px solid #197f9166;color:#197f91;font-family:"Playfair Display","Noto Sans KR","Noto Sans JP",serif!important;font-size:20px!important;font-weight:600!important;letter-spacing:.14em!important;line-height:1!important;text-shadow:none}
+.notice-logo span{display:inline-block;margin-top:15px;padding:9px 14px 0;border-top:1px solid #197f9166;font-family:"Playfair Display","Noto Sans KR","Noto Sans JP",serif!important;font-size:19px!important;font-weight:600!important;letter-spacing:.14em!important;line-height:1!important}
+[lang="ko"] .brand span,[lang="ja"] .brand span{letter-spacing:.08em!important}[lang="ko"] .notice-logo span,[lang="ja"] .notice-logo span{letter-spacing:.08em!important}
+</style><style>
+.brand span,.notice-logo span{display:block;width:max-content;margin-left:auto!important;margin-right:auto!important}
+</style></body></html>
