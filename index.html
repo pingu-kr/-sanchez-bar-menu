@@ -18,6 +18,13 @@ body:before{background:radial-gradient(circle at 86% 5%,#ffd362 0 10%,transparen
 .mast>*{position:relative;z-index:1}.brand{letter-spacing:-.04em}.brand span{letter-spacing:.34em;padding-left:.34em}.sombrero{position:absolute;z-index:1;right:18%;bottom:23px;width:38px;height:13px;border-radius:50%;background:#e75b4c;border:2px solid #1f7686;transform:rotate(8deg);box-shadow:0 7px 0 -4px #f5bc45}.sombrero:before{content:"";position:absolute;left:10px;top:-12px;width:14px;height:14px;border-radius:9px 9px 3px 3px;background:#f5bc45;border:2px solid #1f7686}
 [lang="ko"] .cat h2,[lang="ja"] .cat h2{font-family:"Noto Sans KR","Noto Sans JP",sans-serif;font-size:27px;font-weight:600;letter-spacing:-.04em}
 </style>
+<style>
+/* Keep category navigation available while reading long menus. */
+.nav{position:sticky;top:61px;z-index:3;gap:23px;padding:10px 24px 15px;background:#fff7e9f2;backdrop-filter:blur(12px);box-shadow:0 7px 12px -14px #183d48}
+.nav a{font-size:12px;font-weight:600;letter-spacing:.04em}
+.label{font-size:11px}.cat h2{font-size:clamp(30px,8vw,40px)}
+[lang="ko"] .cat h2,[lang="ja"] .cat h2{font-size:30px}
+</style>
 <script>
 const T={ko:{tag:'좋은 술과 맛있는 전, 편안한 밤',intro:'산체스 바의 전통주와 안주를 소개합니다.',foot:'AN-GUK, SEOUL · 알레르기 정보는 직원에게 문의해 주세요',cat:['막걸리','전통주','전 & 안주','사이드 메뉴','음료']},en:{tag:'Good drinks, good food, an easy night.',intro:'A selection of Korean drinks and food at Sanchez BAR.',foot:'AN-GUK, SEOUL · PLEASE ASK OUR STAFF FOR ALLERGEN INFORMATION',cat:['Makgeolli','Traditional Spirits','Jeon & Food','Sides','Drinks']},ja:{tag:'良いお酒とおいしいチヂミ、心地よい夜を。',intro:'Sanchez BARの韓国伝統酒とおつまみをご紹介します。',foot:'AN-GUK, SEOUL · アレルギーに関してはスタッフまでお尋ねください',cat:['マッコリ','韓国伝統酒','チヂミ & おつまみ','サイドメニュー','ドリンク']}};
 const M=[
