@@ -65,4 +65,33 @@ document.querySelector('.brand span').textContent='MAKGEOLLI';
 document.querySelector('footer b').textContent='SANCHEZ MAKGEOLLI';
 document.querySelector('.mast').insertAdjacentHTML('beforeend','<i class="sombrero" aria-hidden="true"></i>');
 const baseRender=render;render=function(){baseRender();document.querySelectorAll('.cat h2').forEach((heading,index)=>heading.textContent=T[L].cat[index])};render();
+</script><script>
+/* Menu updates and welcome notice. */
+document.title='SANCHEZ MAKGEOLLI · MENU';
+T.ko.cat=['막걸리','전통주','잔술','안주','사이드 메뉴','기타 주류','음료'];T.en.cat=['Makgeolli','Traditional Spirits','By the Glass','Snacks','Sides','Other Alcohol','Drinks'];T.ja.cat=['マッコリ','韓国伝統酒','グラスメニュー','おつまみ','サイドメニュー','その他のお酒','ドリンク'];
+T.ko.ask='가격 문의';T.en.ask='Ask staff';T.ja.ask='価格はスタッフまで';
+const findCat=id=>M.find(c=>c[0]===id),spiritsCat=findCat('spirits'),foodCat=findCat('jeon'),drinksCat=findCat('drinks');
+const andong=spiritsCat[2].find(item=>item[0]==='명인 안동소주 22도');
+andong[3]='국내산 쌀과 안동의 천연 암반수로 빚은 22도 안동소주. 부담 없이 즐기기 좋은 부드럽고 깔끔한 곡물 풍미.';
+andong[4]='A 22% Andong soju made with Korean rice and natural bedrock water from Andong. Smooth, clean and gently grain-forward.';
+andong[5]='韓国産米と安東の天然岩盤水で造る22度の安東焼酎。なめらかでクリア、ほのかな米の風味が楽しめます。';
+const kimchiIndex=foodCat[2].findIndex(item=>item[0]==='김치전');foodCat[2][kimchiIndex][6]='15,000';foodCat[2].find(item=>item[0]==='땡초 부추전')[6]='15,000';
+foodCat[2].splice(kimchiIndex+1,0,['계란후라이','Fried Egg','目玉焼き','바삭한 전에 곁들이기 좋은 계란후라이.','A fried egg to enjoy alongside your jeon.','チヂミに添えて楽しむ目玉焼き。','1,000']);
+const movedNames=['처음처럼','참이슬','카스'],moved=drinksCat[2].filter(item=>movedNames.includes(item[0]));drinksCat[2]=drinksCat[2].filter(item=>!movedNames.includes(item[0])&&item[0]!=='하늘보리');
+const glass=['by-glass','BY THE GLASS',[['산체스 하이볼','Sanchez Highball','サンチェス・ハイボール','존 바 스카치 위스키 + 탄산수','John Barr Scotch whisky + soda water.','ジョン・バー・スコッチウイスキー + 炭酸水。',null],['산체스의 밤',"Sanchez's Night",'サンチェスの夜','매실향이 은은한 서울의 밤에 탄산수를 섞어 달지않고 가볍게 마실 수 있는 칵테일','A light, not-too-sweet cocktail of plum-scented Seoul’s Night and soda water.','梅の香りが穏やかな「ソウルの夜」に炭酸水を合わせた、甘さ控えめで軽やかなカクテルです。',null],['오차와리','Ocha-wari','お茶割り','명인 안동소주에 옥수수 수염차를 믹스 한 한국식 오차와리','A Korean-style ocha-wari of Master Andong Soju and corn silk tea.','名人安東焼酎にとうもろこしのひげ茶を合わせた、韓国式お茶割りです。',null]]];
+const otherAlcohol=['other-alcohol','OTHER ALCOHOL',moved];M.splice(2,0,glass);M.splice(M.indexOf(drinksCat),0,otherAlcohol);
+render=function(){const t=T[L],x=idx[L];document.documentElement.lang=L;tag.textContent=t.tag;intro.textContent=t.intro;foot.textContent=t.foot;document.querySelectorAll('.langs button').forEach(button=>button.classList.toggle('active',button.dataset.l===L));nav.innerHTML=M.map((cat,index)=>'<a href="#'+cat[0]+'">'+t.cat[index]+'</a>').join('');menu.innerHTML=M.map((cat,index)=>'<section class="cat" id="'+cat[0]+'"><div class="cathead"><h2>'+t.cat[index]+'</h2><span class="label">'+t.cat[index]+'</span></div>'+cat[2].map(item=>{const description=item[x[1]]?'<p>'+e(item[x[1]])+'</p>':'';const price=item[6]?'₩'+item[6]:t.ask;return '<article class="item"><div class="top"><div class="name">'+e(item[x[0]])+'</div><div class="price">'+price+'</div></div>'+description+'</article>'}).join('')+'</section>').join('')};
+document.querySelector('.langs').onclick=event=>{if(event.target.dataset.l){L=event.target.dataset.l;localStorage.setItem('sanchez-language',L);render()}};render();
+document.head.insertAdjacentHTML('beforeend','<style>[lang="ja"] .item p{word-break:normal;overflow-wrap:anywhere;line-break:strict}.notice-screen{position:fixed;inset:0;z-index:99;display:grid;place-items:center;padding:24px;background:linear-gradient(145deg,#9ee4dc 0%,#fff0c7 58%,#f9c46b 100%)}.notice-card{width:min(100%,470px);padding:38px 28px 30px;text-align:center;border:2px solid #e58352;border-radius:28px;background:#fffaf0;box-shadow:0 20px 60px #1b5d6536}.notice-card:before{content:"🌵　☀　🌵";display:block;margin-bottom:17px;font-size:27px}.notice-logo{color:#df5549;font:500 39px/.9 "Playfair Display",serif}.notice-logo span{display:block;margin-top:10px;color:#197f91;font:11px/1 "DM Mono",monospace;letter-spacing:.43em;padding-left:.43em}.notice-card h1{margin:31px 0 17px;color:#183d48;font-size:20px}.notice-card ul{margin:0;padding:0;list-style:none;color:#355d65;text-align:left;font-size:14px}.notice-card li{padding:12px 0;border-top:1px solid #ead5ac}.notice-card strong{color:#df5549}.notice-card button{width:100%;margin-top:26px;border:0;border-radius:999px;padding:15px;background:#df5549;color:#fff;font-weight:700;font-size:15px}.notice-screen.hide{display:none}</style>');
+document.body.insertAdjacentHTML('afterbegin','<section class="notice-screen" id="notice-screen" role="dialog" aria-modal="true"><div class="notice-card"><div class="notice-logo">Sanchez<span>MAKGEOLLI</span></div><h1>이용 안내</h1><ul><li><strong>주문</strong>은 바에 와서 해주세요.</li><li>화장실은 <strong>1층</strong>에 있습니다.<br>비밀번호 : <strong>1004*</strong></li><li>와이파이 비밀번호 : <strong>sanchez7979</strong></li><li>이용시간은 <strong>2시간</strong>입니다.</li></ul><button type="button" id="enter-menu">메뉴판 보기</button></div></section>');
+document.getElementById('enter-menu').addEventListener('click',()=>document.getElementById('notice-screen').classList.add('hide'));
+</script><script>
+/* Final category order and by-the-glass pricing. */
+var requestedOrder=['jeon','side','makgeolli','by-glass','spirits','other-alcohol','drinks'];
+M.sort((left,right)=>requestedOrder.indexOf(left[0])-requestedOrder.indexOf(right[0]));
+findCat('by-glass')[2].forEach(item=>item[6]='7,000');
+T.ko.cat=['안주','사이드 메뉴','막걸리','잔술','전통주','기타 주류','음료'];
+T.en.cat=['Snacks','Sides','Makgeolli','By the Glass','Traditional Spirits','Other Alcohol','Drinks'];
+T.ja.cat=['おつまみ','サイドメニュー','マッコリ','グラスメニュー','韓国伝統酒','その他のお酒','ドリンク'];
+render();
 </script></body></html>
