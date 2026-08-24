@@ -113,4 +113,13 @@ document.head.insertAdjacentHTML('beforeend','<style>.mast{padding-top:30px!impo
 </script><script>
 /* The first category is not active unless it is actually selected. */
 document.head.insertAdjacentHTML('beforeend','<style>.nav a:first-child:not(.active){color:#39727a!important}.langs button{display:flex;align-items:center;justify-content:center;gap:5px}.langs button[data-l="ko"]::before{content:"🇰🇷"}.langs button[data-l="en"]::before{content:"🇺🇸"}.langs button[data-l="ja"]::before{content:"🇯🇵"}</style>');
+</script><script>
+/* Deterministic scroll spy: the section just above the fixed navigation wins. */
+function updateCategoryFromScroll(){const navBottom=document.querySelector('.nav').getBoundingClientRect().bottom+8;let current=document.querySelector('.cat');document.querySelectorAll('.cat').forEach(section=>{if(section.getBoundingClientRect().top<=navBottom)current=section});if(current)activateCategory(current.id)}
+var renderBeforeScrollSpy=render;render=function(){renderBeforeScrollSpy();if(categoryObserver)categoryObserver.disconnect();requestAnimationFrame(updateCategoryFromScroll)};
+window.addEventListener('scroll',updateCategoryFromScroll,{passive:true});window.addEventListener('resize',updateCategoryFromScroll);render();
+</script><script>
+/* Ocha-wari is now offered only in the by-the-glass category. */
+findCat('spirits')[2]=findCat('spirits')[2].filter(item=>item[0]!=='문경바람 오크 오차와리 잔술');
+render();
 </script></body></html>
