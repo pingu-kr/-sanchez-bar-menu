@@ -94,4 +94,20 @@ T.ko.cat=['안주','사이드 메뉴','막걸리','잔술','전통주','기타 �
 T.en.cat=['Snacks','Sides','Makgeolli','By the Glass','Traditional Spirits','Other Alcohol','Drinks'];
 T.ja.cat=['おつまみ','サイドメニュー','マッコリ','グラスメニュー','韓国伝統酒','その他のお酒','ドリンク'];
 render();
+</script><script>
+/* Welcome reset, active category state, and Mexican festival details. */
+function activateCategory(id){document.querySelectorAll('.nav a').forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+id))}
+var categoryObserver;
+function observeCategories(){if(categoryObserver)categoryObserver.disconnect();categoryObserver=new IntersectionObserver(entries=>{const visible=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(visible)activateCategory(visible.target.id)},{rootMargin:'-145px 0px -48% 0px',threshold:[0.05,0.2,0.5]});document.querySelectorAll('.cat').forEach(section=>categoryObserver.observe(section))}
+var menuRenderWithOrder=render;render=function(){menuRenderWithOrder();activateCategory(M[0][0]);observeCategories()};render();
+nav.addEventListener('click',event=>{const link=event.target.closest('a');if(link)activateCategory(link.getAttribute('href').slice(1))});
+document.head.insertAdjacentHTML('beforeend','<style>.nav a:first-child{color:#39727a}.nav a.active{color:#df5549!important}.papel-picado{display:flex;justify-content:center;gap:5px;margin:0 auto 14px;transform:rotate(-2deg)}.papel-picado i{display:block;width:28px;height:24px;background:#df5549;clip-path:polygon(0 0,100% 0,92% 78%,78% 70%,67% 94%,50% 75%,33% 94%,22% 70%,8% 78%)}.papel-picado i:nth-child(2n){background:#1b8b99;transform:translateY(5px)}.papel-picado i:nth-child(3n){background:#f3b441}.welcome-sombrero{position:relative;display:block;width:66px;height:18px;margin:5px auto 16px;border:3px solid #1f7686;border-radius:50%;background:#df5549;box-shadow:inset 0 -5px #f4b747}.welcome-sombrero:before{content:"";position:absolute;left:19px;bottom:9px;width:23px;height:23px;border:3px solid #1f7686;border-bottom:0;border-radius:16px 16px 3px 3px;background:#f4b747}.welcome-cacti{margin-top:16px;color:#398d62;font-size:25px;letter-spacing:13px;padding-left:13px}.notice-card:before{display:none}</style>');
+const welcomeCard=document.querySelector('.notice-card');welcomeCard.insertAdjacentHTML('afterbegin','<div class="papel-picado" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><i class="welcome-sombrero" aria-hidden="true"></i>');welcomeCard.insertAdjacentHTML('beforeend','<div class="welcome-cacti" aria-hidden="true">🌵 🌵 🌵</div>');
+window.scrollTo({top:0,left:0,behavior:'auto'});
+document.getElementById('enter-menu').addEventListener('click',()=>{window.scrollTo({top:0,left:0,behavior:'auto'});requestAnimationFrame(()=>{window.scrollTo({top:0,left:0,behavior:'auto'});document.getElementById('notice-screen').classList.add('hide')})});
+</script><script>
+/* Carry the welcome screen's Mexican festival language into the menu header. */
+const menuMast=document.querySelector('.mast');
+menuMast.insertAdjacentHTML('afterbegin','<div class="papel-picado mast-papel" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><i class="welcome-sombrero mast-sombrero" aria-hidden="true"></i><div class="welcome-cacti mast-cacti" aria-hidden="true">🌵 🌵</div>');
+document.head.insertAdjacentHTML('beforeend','<style>.mast{padding-top:30px!important;min-height:226px}.mast .mast-papel{position:absolute;top:9px;left:50%;width:calc(100% - 38px);transform:translateX(-50%) rotate(-2deg);margin:0;gap:4px}.mast .mast-papel i{width:clamp(20px,7vw,34px);height:27px}.mast .mast-sombrero{position:absolute;right:16%;bottom:15px;margin:0;transform:rotate(9deg) scale(.72)}.mast .mast-cacti{position:absolute;left:6%;bottom:7px;margin:0;font-size:20px;letter-spacing:6px;padding:0}.mast .brand{margin-top:34px}.mast .tag{margin-top:19px}@media(min-width:560px){.mast{min-height:242px}.mast .mast-papel{width:470px}.mast .mast-sombrero{right:21%}.mast .mast-cacti{left:18%}}</style>');
 </script></body></html>
