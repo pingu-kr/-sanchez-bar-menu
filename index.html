@@ -1,179 +1,61 @@
 <!doctype html>
-<html lang="ko">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#080808">
-<title>Sanchez BAR · Menu</title>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#171510"><title>SANCHEZ BAR · MENU</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Playfair+Display:wght@500;600&family=Noto+Sans+JP:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;600&display=swap');:root{--ink:#f4efe5;--bg:#171510;--pane:#201d16;--line:#f4efe52b;--muted:#aaa49a;--gold:#c9a66b}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 "Noto Sans KR","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% -10%,#574228,transparent 42%),linear-gradient(105deg,#ffffff06 1px,transparent 1px);background-size:auto,5px 5px}.shell{max-width:760px;margin:auto}.mast{text-align:center;padding:48px 24px 25px}.eyebrow,.label,footer{font:10px/1 "DM Mono",monospace;letter-spacing:.2em;color:var(--gold)}.brand{margin:16px 0 0;font:500 clamp(43px,12vw,66px)/.9 "Playfair Display",serif}.brand span{display:block;margin-top:13px;padding-left:.52em;color:#e3c99d;font:11px/1 "DM Mono",monospace;letter-spacing:.52em}.tag{margin:22px 0 0;color:var(--muted);font-size:12px}.langwrap{position:sticky;top:0;z-index:2;padding:10px 16px 12px;background:linear-gradient(var(--bg) 75%,transparent)}.langs{display:flex;max-width:340px;margin:auto;padding:4px;border:1px solid var(--line);border-radius:4px;background:#201d16ed;backdrop-filter:blur(14px)}button{font:inherit}.langs button{flex:1;border:0;border-radius:2px;padding:8px 4px;background:none;color:var(--muted);font-size:12px}.langs button.active{background:var(--gold);color:#20190f;font-weight:600}.nav{display:flex;gap:21px;overflow:auto;padding:3px 24px 17px;border-bottom:1px solid var(--line);scrollbar-width:none}.nav a{flex:none;color:var(--muted);font:10px/1 "DM Mono",monospace;letter-spacing:.08em;text-decoration:none;text-transform:uppercase}main{padding:4px 24px 72px}.intro{display:flex;justify-content:space-between;gap:20px;padding:26px 0 33px;color:var(--muted);font-size:12px;border-bottom:1px solid var(--line)}.intro b{color:#e3c99d;white-space:nowrap}.cat{padding-top:47px;scroll-margin-top:55px}.cathead{display:flex;align-items:end;justify-content:space-between;padding-bottom:13px;border-bottom:1px solid var(--gold)}h2{margin:0;font:500 clamp(26px,7vw,36px)/1 "Playfair Display",serif;letter-spacing:-.03em}.item{padding:19px 0 18px;border-bottom:1px solid var(--line)}.top{display:flex;justify-content:space-between;gap:15px;align-items:baseline}.name{font-size:16px;font-weight:600;letter-spacing:-.02em}.price{flex:none;color:#e3c99d;font:13px/1 "DM Mono",monospace}p{margin:6px 32px 0 0;color:var(--muted);font-size:12px;line-height:1.7;word-break:keep-all}footer{padding:35px 24px 44px;border-top:1px solid var(--line);text-align:center;line-height:1.8;color:var(--muted)}footer b{display:block;margin-bottom:5px;color:var(--gold);font-weight:400}@media(min-width:560px){main{padding-left:42px;padding-right:42px}.nav{justify-content:center}.item{padding:22px 0}.name{font-size:17px}p{font-size:13px}}</style></head>
+<body><div class="shell"><header class="mast"><div class="eyebrow">AN-GUK · SEOUL</div><div class="brand">Sanchez<span>BAR</span></div><p class="tag" id="tag"></p></header><div class="langwrap"><div class="langs"><button class="active" data-l="ko">한국어</button><button data-l="en">English</button><button data-l="ja">日本語</button></div></div><nav class="nav" id="nav"></nav><main><div class="intro"><span id="intro"></span><b>KRW · ₩</b></div><div id="menu"></div></main><footer><b>SANCHEZ BAR</b><span id="foot"></span></footer></div>
 <style>
-:root{--bg:#080808;--card:#111;--orange:#ff7a3d;--green:#9cff45;--gold:#ffd35a;--muted:#bdbdbd;}
-*{box-sizing:border-box} body{margin:0;background:var(--bg);color:#f7f4ee;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR","Apple SD Gothic Neo",sans-serif;line-height:1.55}
-header{padding:34px 20px 26px;text-align:center;border-bottom:1px solid #252525;position:sticky;top:0;background:rgba(8,8,8,.94);backdrop-filter:blur(12px);z-index:5}
-.logo{font-family:cursive;font-size:44px;font-style:italic;color:var(--orange);text-shadow:0 0 14px rgba(255,122,61,.35);line-height:1}
-.logo span{display:block;font-family:inherit;font-size:16px;letter-spacing:7px;color:var(--gold);margin-top:10px;font-style:normal}
-.cactus{color:var(--green);font-size:22px;margin-left:4px}
-.langs{display:flex;gap:8px;justify-content:center;margin-top:20px}
-.langs button{border:1px solid #3a3a3a;background:#151515;color:#ddd;border-radius:999px;padding:8px 14px;font-size:13px}
-.langs button.active{border-color:var(--gold);color:var(--gold)}
-nav{display:flex;gap:8px;overflow:auto;padding:14px 14px 4px;scrollbar-width:none}
-nav a{white-space:nowrap;text-decoration:none;color:#ddd;background:#141414;border:1px solid #262626;padding:9px 13px;border-radius:999px;font-size:13px}
-main{max-width:760px;margin:auto;padding:10px 16px 70px}
-section{padding-top:22px;margin-top:10px}
-.section-title{display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid #333;padding-bottom:9px;margin-bottom:4px}
-.section-title h2{margin:0;color:var(--green);font-size:22px;letter-spacing:.5px}
-.section-title .ko{font-size:13px;color:#888}
-.item{padding:18px 2px;border-bottom:1px solid #202020}
-.item-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
-h3{margin:0;font-size:17px;font-weight:700}
-.en{font-size:13px;color:var(--muted);margin-top:2px}
-.price{color:var(--gold);font-weight:700;white-space:nowrap;font-size:16px}
-.item p{margin:8px 0 0;color:#c8c8c8;font-size:13px;word-break:keep-all}
-.notice{margin:20px 0;padding:14px;border:1px solid #2b2b2b;border-radius:14px;color:#aaa;font-size:12px}
-footer{text-align:center;color:#666;padding:30px 20px;font-size:12px}
-[lang="en"] .ko-only{display:none}
-body.english .ko{display:none} body.english .en{font-size:14px;color:#ddd}
-body.english h3{font-size:16px} body.english .item p{color:#c8c8c8}
+/* Coastal Latin bar edition */
+:root{--ink:#183d48;--bg:#fff7e9;--pane:#fffdf7;--line:#183d4830;--muted:#5c7277;--gold:#f09a47}
+body{background:var(--bg);color:var(--ink)}
+body:before{background:radial-gradient(circle at 86% 5%,#ffd362 0 10%,transparent 10.3%),radial-gradient(ellipse at 22% 0%,#ffe1bc 0%,transparent 37%),linear-gradient(135deg,#fff7e9 0%,#fff9ef 100%);opacity:1}
+.mast{padding-top:54px;background:linear-gradient(180deg,#9ee4dc 0%,#c9f0e7 46%,transparent 100%)}
+.eyebrow,.label{color:#dc5d4e;font-weight:bold}.brand{color:#df5549;text-shadow:2px 2px 0 #ffe7b1}.brand span{color:#197f91}.tag{color:#275d68;font-weight:500}
+.langwrap{background:linear-gradient(#fff7e9e8 75%,transparent)}.langs{border-color:#e6b776;background:#fffdf7eF;box-shadow:0 5px 14px #28586012}.langs button{color:#3d6970}.langs button.active{background:#e85e50;color:#fffdf7}
+.nav{border-color:#eacb9a}.nav a{color:#39727a}.nav a:first-child{color:#df5549}
+.intro{border-color:#eacb9a;color:#547279}.intro b{color:#df5549}.cathead{border-color:#e85e50}.cat h2{color:#183d48}.item{border-color:#e4d6bf}.name{color:#1d4b56}.price{color:#dd694a;font-weight:500}p{color:#547279}footer{border-color:#eacb9a;color:#547279}footer b{color:#df5549}
 </style>
-</head>
-<body>
-<header>
-  <div class="logo">Sanchez <span>BAR</span><i class="cactus">♒</i></div>
-  <div class="langs">
-    <button class="active" onclick="setLang('ko',this)">🇰🇷 한국어</button>
-    <button onclick="setLang('en',this)">🇺🇸 English</button>
-  </div>
-</header>
-<nav>
-  <a href="#makgeolli">🍶 막걸리</a><a href="#spirits">🥃 전통주</a><a href="#jeon">🥞 전</a><a href="#side">🍜 사이드</a><a href="#drinks">🥤 음료</a>
-</nav>
-<main>
-<div class="notice">현재 메뉴판을 기준으로 만든 1차 디지털 메뉴입니다. 가격·메뉴는 실제 운영 메뉴에 맞게 언제든 수정할 수 있습니다.</div>
-<section id="makgeolli"><div class="section-title"><h2>MAKGEOLLI</h2><span class="ko">막걸리</span></div><article class="item">
-          <div class="item-head"><div><h3>호랑이 막걸리</h3><div class="en">Tiger Makgeolli</div></div><div class="price">₩12,000</div></div>
-          <p>멸균위기인 '매화와 봄쌀'로 빚은 유기농 프리미엄 막걸리. 탄산이 적고 깔끔하며, 목넘김이 부드러운 막걸리.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>대대포 막걸리</h3><div class="en">Daedaepo Makgeolli</div></div><div class="price">₩9,000</div></div>
-          <p>전라남도 담양의 죽향도가 양조장. 벌꿀의 은은한 향과 유기농 쌀의 환상 콜라보. 목넘김이 부드럽고 적당히 달달한 막걸리.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>느린마을 막걸리</h3><div class="en">Neurinmaeul Makgeolli</div></div><div class="price">₩9,000</div></div>
-          <p>배상면주가에서 만든 아스파탐을 첨가하지 않은 막걸리. 배 향을 느낄 수 있으며 부드럽고 적당히 달달해 호불호가 없는 막걸리.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>선호 막걸리</h3><div class="en">Seonho Makgeolli</div></div><div class="price">₩7,000</div></div>
-          <p>밸런스가 아주 좋은 막걸리. 누구나 선호하는 막걸리. 많이 달지 않은 막걸리를 선호하는 분께 추천.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>송명섭 막걸리</h3><div class="en">Song Myeong-seop Makgeolli</div></div><div class="price">₩11,000</div></div>
-          <p>막걸리계의 평양냉면. 무형문화재 송명섭옹께서 빚으신 막걸리. 우리 쌀로 만드는 누룩, 물 외에는 아무것도 첨가하지 않은 오리지널 막걸리. Super dry.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>공주 알밤 막걸리</h3><div class="en">Gongju Chestnut Makgeolli</div></div><div class="price">₩7,000</div></div>
-          <p>충남 공주의 알밤 막걸리. 맛과 향이 들어간 막걸리 중 꽤나 찰밥이 되는 달달구리 막걸리.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>고흥 유자 막걸리</h3><div class="en">Goheung Yuja Makgeolli</div></div><div class="price">₩7,000</div></div>
-          <p>유자의 고향 전라남도 고흥 출신. 상큼한 유자향이 매력적인 막걸리.</p>
-        </article></section>
-<section id="spirits"><div class="section-title"><h2>TRADITIONAL SPIRITS</h2><span class="ko">전통주</span></div><article class="item">
-          <div class="item-head"><div><h3>오메기술 13도</h3><div class="en">Omegi Sul 13%</div></div><div class="price">₩15,000</div></div>
-          <p>제주도의 천연 암반수로 빚은 약주. 은은한 단맛과 고소하면서 부드러운 산미.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>명인 안동소주 22도</h3><div class="en">Master Andong Soju 22%</div></div><div class="price">₩13,000</div></div>
-          <p>은은하게 올라오는 매실의 향을 느낄 수 있는 전통 증류주. 차 또는 소다, 토닉과 믹스해서 마시기 좋은 술.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>추사 백 25도</h3><div class="en">Chusa Baek 25%</div></div><div class="price">₩27,000</div></div>
-          <p>추사 김정희 선생의 고향인 예산의 사과로 만든 사과 증류주. 천천히 음미하며 마시기 좋은 술.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>문경바람 백자 25도</h3><div class="en">Mungyeong Baram Baekja 25%</div></div><div class="price">₩33,000</div></div>
-          <p>문경 도자기에서 숙성한 증류주. 달달한 사과의 향을 품고 있지만 인위적인 단맛이 없어 깔끔하게 마시기 좋은 술.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>만월 24도</h3><div class="en">Manwol 24%</div></div><div class="price">₩26,000</div></div>
-          <p>경북 예천에서 재배한 복분자로 만든 증류주. 맑고 투명한 빛이 예쁘고, 청량하고 뒷맛이 깔끔함.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>서울의 밤 25도</h3><div class="en">Seoul's Night 25%</div></div><div class="price">₩15,000</div></div>
-          <p>은은하게 올라오는 매실의 향을 느낄 수 있는 전통 증류주. 토닉워터와 함께 마시기 좋은 술.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>문경바람 오크 오차와리 잔술</h3><div class="en">Mungyeong Baram Oak · Ocha-wari</div></div><div class="price">₩8,000</div></div>
-          <p>문경바람 특유의 향긋한 사과향과 오크통에서 우러나오는 삼나무향이 잘 블렌드된 증류주를 베이스로 한 잔술.</p>
-        </article></section>
-<section id="jeon"><div class="section-title"><h2>JEON & FOOD</h2><span class="ko">전 & 안주</span></div><article class="item">
-          <div class="item-head"><div><h3>미국 감자전</h3><div class="en">American Potato Jeon</div></div><div class="price">₩23,000</div></div>
-          <p>산체스 막걸리의 시그니처 메뉴. 스위스의 대표적 가정식 '뢰스티'에서 착안한 요리. 얇게 채썬 감자에 베이컨, 새우 등을 같이 버무려 부쳐낸 감자전.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>바지락 술찜</h3><div class="en">Clam Sake Stew</div></div><div class="price">₩21,000</div></div>
-          <p>유럽의 바지락 술찜과 일본의 '아사리노 사카무시' 그 중간쯤 있는 요리. 바지락 육수에 청주의 부드러움과 청양고추의 칼칼함을 더한 국물안주.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>부추 꼬꼬전</h3><div class="en">Chicken & Chive Jeon</div></div><div class="price">₩18,000</div></div>
-          <p>갈비양념에 재운 닭다리살과 피를 맑게 해주는 부추의 만남. 색다른 전이 먹어보고 싶다면 추천.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>김치전</h3><div class="en">Kimchi Jeon</div></div><div class="price">₩13,000</div></div>
-          <p>Simple is the best. 다 아는 그 맛이지만 바삭하니 맛있음. 계란후라이 추가 +1,000원.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>땡초 부추전</h3><div class="en">Spicy Chive Jeon</div></div><div class="price">₩14,000</div></div>
-          <p>부추전에 청양고추를 더한 메뉴. 부추가 아주 가득가득 들어있어 건강해질 것 같은 맛.</p>
-        </article></section>
-<section id="side"><div class="section-title"><h2>SIDE MENU</h2><span class="ko">사이드 메뉴 · 추가로만 주문 가능</span></div><article class="item">
-          <div class="item-head"><div><h3>계란라면</h3><div class="en">Egg Ramen</div></div><div class="price">₩9,000</div></div>
-          <p>산체스의 두번째 시그니처 메뉴. 계란찜과 라면의 콜라보.</p>
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>사각사각 깐포도</h3><div class="en">Chilled Peeled Grapes</div></div><div class="price">₩9,000</div></div>
-          <p>추억의 봉봉 열매맛! 소주나 증류주와의 궁합이 좋은 달달구리 메뉴.</p>
-        </article></section>
-<section id="drinks"><div class="section-title"><h2>DRINKS</h2><span class="ko">소주 · 맥주 · 음료</span></div><article class="item">
-          <div class="item-head"><div><h3>처음처럼</h3><div class="en">Chum-Churum Soju</div></div><div class="price">₩5,000</div></div>
-          
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>참이슬</h3><div class="en">Chamisul Soju</div></div><div class="price">₩5,000</div></div>
-          
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>카스</h3><div class="en">Cass Beer</div></div><div class="price">₩6,000</div></div>
-          
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>클럽소다</h3><div class="en">Club Soda</div></div><div class="price">₩3,000</div></div>
-          
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>하늘보리</h3><div class="en">Heavenly Barley Tea</div></div><div class="price">₩3,000</div></div>
-          
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>옥수수 수염차</h3><div class="en">Corn Silk Tea</div></div><div class="price">₩3,000</div></div>
-          
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>토닉워터</h3><div class="en">Tonic Water</div></div><div class="price">₩3,000</div></div>
-          
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>콜라</h3><div class="en">Coke</div></div><div class="price">₩3,000</div></div>
-          
-        </article>
-<article class="item">
-          <div class="item-head"><div><h3>스프라이트</h3><div class="en">Sprite</div></div><div class="price">₩3,000</div></div>
-          
-        </article></section>
-</main>
-<footer>SANCHEZ BAR · AN GUK, SEOUL</footer>
+<style>
+.mast{position:relative;overflow:hidden}.mast:before,.mast:after{position:absolute;z-index:0;font-size:31px;filter:drop-shadow(2px 3px 0 #fff2cf);opacity:.95}.mast:before{content:"🌵";left:8%;bottom:22px;transform:rotate(-8deg)}.mast:after{content:"☀";right:8%;top:20px;color:#f4ad38}
+.mast>*{position:relative;z-index:1}.brand{letter-spacing:-.04em}.brand span{letter-spacing:.34em;padding-left:.34em}.sombrero{position:absolute;z-index:1;right:18%;bottom:23px;width:38px;height:13px;border-radius:50%;background:#e75b4c;border:2px solid #1f7686;transform:rotate(8deg);box-shadow:0 7px 0 -4px #f5bc45}.sombrero:before{content:"";position:absolute;left:10px;top:-12px;width:14px;height:14px;border-radius:9px 9px 3px 3px;background:#f5bc45;border:2px solid #1f7686}
+[lang="ko"] .cat h2,[lang="ja"] .cat h2{font-family:"Noto Sans KR","Noto Sans JP",sans-serif;font-size:27px;font-weight:600;letter-spacing:-.04em}
+</style>
 <script>
-function setLang(lang,btn){
- document.body.classList.toggle('english',lang==='en');
- document.querySelectorAll('.langs button').forEach(x=>x.classList.remove('active')); btn.classList.add('active');
-}
-</script>
-</body></html>
+const T={ko:{tag:'좋은 술과 맛있는 전, 편안한 밤',intro:'산체스 바의 전통주와 안주를 소개합니다.',foot:'AN-GUK, SEOUL · 알레르기 정보는 직원에게 문의해 주세요',cat:['막걸리','전통주','전 & 안주','사이드 메뉴','음료']},en:{tag:'Good drinks, good food, an easy night.',intro:'A selection of Korean drinks and food at Sanchez BAR.',foot:'AN-GUK, SEOUL · PLEASE ASK OUR STAFF FOR ALLERGEN INFORMATION',cat:['Makgeolli','Traditional Spirits','Jeon & Food','Sides','Drinks']},ja:{tag:'良いお酒とおいしいチヂミ、心地よい夜を。',intro:'Sanchez BARの韓国伝統酒とおつまみをご紹介します。',foot:'AN-GUK, SEOUL · アレルギーに関してはスタッフまでお尋ねください',cat:['マッコリ','韓国伝統酒','チヂミ & おつまみ','サイドメニュー','ドリンク']}};
+const M=[
+['makgeolli','MAKGEOLLI',[
+['호랑이 막걸리','Tiger Makgeolli','虎マッコリ','멸균위기인 ‘매화와 봄쌀’로 빚은 유기농 프리미엄 막걸리. 탄산이 적고 깔끔하며, 목넘김이 부드러운 막걸리.','An organic premium makgeolli made with Maehwa and spring rice. Low in carbonation, clean and silky on the palate.','「梅花と春米」で醸したオーガニック・プレミアムマッコリ。炭酸は控えめで、すっきりとなめらかな飲み口です。','12,000'],
+['대대포 막걸리','Daedaepo Makgeolli','テデポ・マッコリ','전라남도 담양의 죽향도가 양조장. 벌꿀의 은은한 향과 유기농 쌀의 환상 콜라보. 목넘김이 부드럽고 적당히 달달한 막걸리.','From Jukhyang Brewery in Damyang. Gentle honey notes meet organic rice in this smooth, pleasantly sweet makgeolli.','全羅南道・潭陽の竹香醸造所のマッコリ。ほのかな蜂蜜の香りと有機米が調和した、なめらかで程よい甘さです。','9,000'],
+['느린마을 막걸리','Neurinmaeul Makgeolli','ヌリンマウル・マッコリ','배상면주가에서 만든 아스파탐을 첨가하지 않은 막걸리. 배 향을 느낄 수 있으며 부드럽고 적당히 달달해 호불호가 없는 막걸리.','Aspartame-free makgeolli with delicate pear aroma, soft texture and balanced sweetness.','アスパルテーム不使用。ほのかな梨の香り、やわらかな口当たりと程よい甘さが特徴です。','9,000'],
+['선호 막걸리','Seonho Makgeolli','ソンホ・マッコリ','밸런스가 아주 좋은 막걸리. 누구나 선호하는 막걸리. 많이 달지 않은 막걸리를 선호하는 분께 추천.','A beautifully balanced, not-too-sweet makgeolli—an easy favorite for everyone.','バランスに優れた、甘さ控えめのマッコリ。甘すぎるお酒が苦手な方にもおすすめです。','7,000'],
+['송명섭 막걸리','Song Myeong-seop Makgeolli','ソン・ミョンソプ・マッコリ','막걸리계의 평양냉면. 무형문화재 송명섭옹께서 빚으신 막걸리. 우리 쌀로 만드는 누룩, 물 외에는 아무것도 첨가하지 않은 오리지널 막걸리. Super dry.','A super-dry original makgeolli by master brewer Song Myeong-seop—nothing added but Korean rice, nuruk and water.','名人ソン・ミョンソプ氏が醸す、韓国米・麹・水だけのオリジナルマッコリ。キレのある超辛口です。','11,000'],
+['공주 알밤 막걸리','Gongju Chestnut Makgeolli','公州アルバム（栗）マッコリ','충남 공주의 알밤 막걸리. 맛과 향이 들어간 막걸리 중 꽤나 찰밥이 되는 달달구리 막걸리.','A sweet chestnut makgeolli from Gongju, richly flavored and aromatic.','忠清南道・公州産の栗マッコリ。風味豊かで、しっかりとした甘さを楽しめます。','7,000'],
+['고흥 유자 막걸리','Goheung Yuja Makgeolli','高興ユジャ（柚子）マッコリ','유자의 고향 전라남도 고흥 출신. 상큼한 유자향이 매력적인 막걸리.','A refreshing makgeolli from Goheung, the home of yuja, with an inviting citrus fragrance.','柚子の名産地、全羅南道・高興のマッコリ。爽やかな柚子の香りが魅力です。','7,000']]],
+['spirits','TRADITIONAL SPIRITS',[
+['오메기술 13도','Omegi Sul 13%','オメギ酒 13度','제주도의 천연 암반수로 빚은 약주. 은은한 단맛과 고소하면서 부드러운 산미.','A refined rice wine made with Jeju’s natural bedrock water; gently sweet with mellow, savory acidity.','済州島の天然岩盤水で醸した薬酒。ほのかな甘みと香ばしくやわらかな酸味が特徴です。','15,000'],
+['명인 안동소주 22도','Master Andong Soju 22%','名人 安東焼酎 22度','은은하게 올라오는 매실의 향을 느낄 수 있는 전통 증류주. 차 또는 소다, 토닉과 믹스해서 마시기 좋은 술.','A traditional spirit with soft plum notes. Delicious mixed with tea, soda or tonic.','ほのかな梅の香りが広がる韓国伝統蒸留酒。お茶、ソーダ、トニックとのミックスにもよく合います。','13,000'],
+['추사 백 25도','Chusa Baek 25%','秋史 白 25度','추사 김정희 선생의 고향인 예산의 사과로 만든 사과 증류주. 천천히 음미하며 마시기 좋은 술.','An apple spirit made in Yesan, best savored slowly.','秋史・金正喜の故郷、礼山のりんごで造った蒸留酒。ゆっくりと味わいたい一杯です。','27,000'],
+['문경바람 백자 25도','Mungyeong Baram Baekja 25%','聞慶バラム 白磁 25度','문경 도자기에서 숙성한 증류주. 달달한 사과의 향을 품고 있지만 인위적인 단맛이 없어 깔끔하게 마시기 좋은 술.','A spirit matured in Mungyeong pottery. Sweet apple aromas without artificial sweetness make for a clean finish.','聞慶の陶器で熟成させた蒸留酒。甘いりんごの香りを持ちながら人工的な甘さはなく、すっきりとした味わいです。','33,000'],
+['만월 24도','Manwol 24%','満月 24度','경북 예천에서 재배한 복분자로 만든 증류주. 맑고 투명한 빛이 예쁘고, 청량하고 뒷맛이 깔끔함.','A distilled bokbunja (black raspberry) spirit: crystal clear, refreshing and clean on the finish.','慶尚北道・醴泉産の覆盆子（ポップンジャ）で造った蒸留酒。透明感があり、爽やかで後味もすっきりです。','26,000'],
+['서울의 밤 25도',"Seoul's Night 25%",'ソウルの夜 25度','은은하게 올라오는 매실의 향을 느낄 수 있는 전통 증류주. 토닉워터와 함께 마시기 좋은 술.','A traditional spirit with gentle plum notes, especially good with tonic water.','ほのかな梅の香りが楽しめる伝統蒸留酒。トニックウォーターと合わせるのがおすすめです。','15,000'],
+['문경바람 오크 오차와리 잔술','Mungyeong Baram Oak · Ocha-wari','聞慶バラム オーク・お茶割り','문경바람 특유의 향긋한 사과향과 오크통에서 우러나오는 삼나무향이 잘 블렌드된 증류주를 베이스로 한 잔술.','A glass of Mungyeong Baram Oak: fragrant apple and cedar notes, served ocha-wari style.','りんごの華やかな香りと、オーク樽由来の杉のような香りが調和した蒸留酒を使った、お茶割りの一杯です。','8,000']]],
+['jeon','JEON & FOOD',[
+['미국 감자전','American Potato Jeon','アメリカンじゃがいもチヂミ','산체스 막걸리의 시그니처 메뉴. 스위스의 대표적 가정식 ‘뢰스티’에서 착안한 요리. 얇게 채썬 감자에 베이컨, 새우 등을 같이 버무려 부쳐낸 감자전.','Sanchez’s signature. Inspired by Swiss rösti: finely shredded potato, bacon and shrimp pan-fried until crisp.','Sanchezのシグネチャー。スイスの家庭料理ロシュティから着想を得た、細切りじゃがいも、ベーコン、えびを香ばしく焼いたチヂミです。','23,000'],
+['바지락 술찜','Clam Sake Stew','あさりの酒蒸し','유럽의 바지락 술찜과 일본의 ‘아사리노 사카무시’ 그 중간쯤 있는 요리. 바지락 육수에 청주의 부드러움과 청양고추의 칼칼함을 더한 국물안주.','Somewhere between European clams in wine and Japanese asari no sakamushi, with clam broth, Korean rice wine and a chili kick.','ヨーロッパの貝の酒蒸しと日本のあさりの酒蒸しの中間のような一品。貝のだしに清酒のまろやかさと青唐辛子の辛みを加えました。','21,000'],
+['부추 꼬꼬전','Chicken & Chive Jeon','鶏肉とニラのチヂミ','갈비양념에 재운 닭다리살과 피를 맑게 해주는 부추의 만남. 색다른 전이 먹어보고 싶다면 추천.','Marinated chicken thigh and generous chives come together in this distinctive jeon.','カルビだれに漬けた鶏もも肉とたっぷりのニラのチヂミ。いつもと違うチヂミを試したい方におすすめです。','18,000'],
+['김치전','Kimchi Jeon','キムチチヂミ','Simple is the best. 다 아는 그 맛이지만 바삭하니 맛있음. 계란후라이 추가 +1,000원.','Simple is best: the familiar, irresistible crisp kimchi pancake. Add a fried egg for ₩1,000.','シンプル・イズ・ベスト。みんなが知っているあの味を、カリッと焼き上げました。目玉焼き追加 +₩1,000。','13,000'],
+['땡초 부추전','Spicy Chive Jeon','青唐辛子とニラのチヂミ','부추전에 청양고추를 더한 메뉴. 부추가 아주 가득가득 들어있어 건강해질 것 같은 맛.','A generous chive pancake with Cheongyang chili peppers for a bright, spicy kick.','たっぷりのニラに青陽唐辛子を加えたチヂミ。爽やかな辛みがアクセントです。','14,000']]],
+['side','SIDE MENU',[
+['계란라면','Egg Ramen','卵ラーメン','산체스의 두번째 시그니처 메뉴. 계란찜과 라면의 콜라보.','Sanchez’s second signature: a comforting marriage of steamed egg and ramen.','Sanchezのもうひとつのシグネチャー。茶碗蒸しのような卵とラーメンを合わせた、ほっとする一品です。','9,000'],
+['사각사각 깐포도','Chilled Peeled Grapes','ひんやり皮なしぶどう','추억의 봉봉 열매맛! 소주나 증류주와의 궁합이 좋은 달달구리 메뉴.','Sweet, chilled peeled grapes with a nostalgic fruit-candy flavor; a lovely match for soju or spirits.','懐かしいぶどうジュースのような甘さ。焼酎や蒸留酒と相性の良い、ひんやりデザートです。','9,000']]],
+['drinks','DRINKS',[['처음처럼','Chum-Churum Soju','チョウムチョロム 焼酎','','','', '5,000'],['참이슬','Chamisul Soju','チャミスル 焼酎','','','', '5,000'],['카스','Cass Beer','CASS ビール','','','', '6,000'],['클럽소다','Club Soda','クラブソーダ','','','', '3,000'],['하늘보리','Heavenly Barley Tea','ハヌルボリ（麦茶）','','','', '3,000'],['옥수수 수염차','Corn Silk Tea','とうもろこしのひげ茶','','','', '3,000'],['토닉워터','Tonic Water','トニックウォーター','','','', '3,000'],['콜라','Coke','コーラ','','','', '3,000'],['스프라이트','Sprite','スプライト','','','', '3,000']]]];
+let L=localStorage.getItem('sanchez-language')||'ko',idx={ko:[0,3],en:[1,4],ja:[2,5]};function e(s){return s.replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]))}function render(){let t=T[L],x=idx[L];document.documentElement.lang=L;tag.textContent=t.tag;intro.textContent=t.intro;foot.textContent=t.foot;document.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.l===L));nav.innerHTML=M.map((c,i)=>`<a href="#${c[0]}">${t.cat[i]}</a>`).join('');menu.innerHTML=M.map((c,i)=>`<section class="cat" id="${c[0]}"><div class="cathead"><h2>${c[1]}</h2><span class="label">${t.cat[i]}</span></div>${c[2].map(a=>`<article class="item"><div class="top"><div class="name">${e(a[x[0]])}</div><div class="price">₩${a[6]}</div></div>${a[x[1]]?`<p>${e(a[x[1]])}</p>`:''}</article>`).join('')}</section>`).join('')}document.querySelector('.langs').onclick=q=>{if(q.target.dataset.l){L=q.target.dataset.l;localStorage.setItem('sanchez-language',L);render()}};render();
+</script><script>
+/* Brand and section headings follow the selected language. */
+T.ko.intro='산체스 막걸리의 전통주와 안주를 소개합니다.';
+T.en.intro='A selection of Korean drinks and food at Sanchez Makgeolli.';
+T.ja.intro='Sanchez Makgeolliの韓国伝統酒とおつまみをご紹介します。';
+document.querySelector('.brand').firstChild.textContent='Sanchez';
+document.querySelector('.brand span').textContent='MAKGEOLLI';
+document.querySelector('footer b').textContent='SANCHEZ MAKGEOLLI';
+document.querySelector('.mast').insertAdjacentHTML('beforeend','<i class="sombrero" aria-hidden="true"></i>');
+const baseRender=render;render=function(){baseRender();document.querySelectorAll('.cat h2').forEach((heading,index)=>heading.textContent=T[L].cat[index])};render();
+</script></body></html>
