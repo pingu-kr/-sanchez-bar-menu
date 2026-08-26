@@ -12,6 +12,6 @@
   notice.append(link);
 
   const style = document.createElement('style');
-  style.textContent = '#instagram-link{position:absolute;top:18px;right:18px;width:46px;height:46px;display:grid;place-items:center;border:1px solid #fff7;border-radius:50%;background:#08242e8a;color:#fffaf0;backdrop-filter:blur(10px);box-shadow:0 6px 18px #0004}#instagram-link svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8}';
+  style.textContent = '#instagram-link{position:absolute;top:18px;right:18px;width:46px;height:46px;display:grid;place-items:center;border:0;border-radius:50%;background:linear-gradient(135deg,#833ab4 0%,#fd1d1d 52%,#fcaf45 100%);color:#fff;box-shadow:0 6px 18px #0006}#instagram-link svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8}';
   document.head.append(style);
 })();
