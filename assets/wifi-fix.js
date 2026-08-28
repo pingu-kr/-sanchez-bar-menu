@@ -10,7 +10,7 @@
 
   const labels = { ko: '이용 안내로 돌아가기', en: 'Back to Welcome', ja: 'ご利用案内に戻る' };
   const style = document.createElement('style');
-  style.textContent = '.notice-card{min-height:390px;display:flex;flex-direction:column}.notice-card p{font-size:17px!important;font-weight:600}.notice-card #enter{margin-top:32px!important;padding:14px 18px!important;font-size:19px!important;font-weight:800}.notice .choices button{height:37px;padding:0 5px!important;font-size:17px!important;font-weight:800!important;line-height:1.05}.wifi-link{padding:4px 11px!important;line-height:1.15;background:#f1b44d!important}.wifi-return{border:0;border-radius:999px;padding:11px 18px;background:#ffd782;color:#173b43;font:800 17px "Noto Sans KR",sans-serif;cursor:pointer}';
+  style.textContent = '.notice-card{min-height:390px;display:flex;flex-direction:column}.notice-card h1{margin-bottom:6px!important}.notice-card p{font-size:17px!important;font-weight:600}.notice-card #enter{margin-top:10px!important;padding:14px 18px!important;font-size:19px!important;font-weight:800}.notice .choices button{height:37px;padding:0 5px!important;font-size:17px!important;font-weight:800!important;line-height:1.05}.wifi-link{padding:4px 11px!important;line-height:1.15;background:#f1b44d!important}.wifi-return{border:0;border-radius:999px;padding:11px 18px;background:#ffd782;color:#173b43;font:800 17px "Noto Sans KR",sans-serif;cursor:pointer}';
   document.head.append(style);
   const renderReturn = () => {
     note.innerHTML = `<button class="wifi-return">${labels[document.documentElement.lang] || labels.ko}</button>`;
